@@ -1,40 +1,27 @@
 .rank {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 2rem auto;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.rank p {
+  margin: 0;
 }
 
 .rank > div {
   display: grid;
-  grid-template-columns: 80px 1fr 120px 120px;
+  grid-template-columns: 70px 1fr 100px 80px 90px 1fr;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #e5e5e5;
   align-items: center;
   background: #fff;
   transition: background 0.2s;
+  gap: 0.5rem;
 }
 
-.rank > div:hover {
-  background: #f8f9fa;
-}
-
-.rank > div:first-child {
-  background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
-  font-weight: 600;
-}
-
-.rank > div:nth-child(2) {
-  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
-  font-weight: 600;
-}
-
-.rank > div:nth-child(3) {
-  background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%);
-  font-weight: 600;
-}
-
+/* Cell styles - must come before row pseudo-class selectors */
 .rank > div > div {
   padding: 0.25rem 0;
 }
@@ -45,7 +32,7 @@
 }
 
 .rank > div > div:nth-child(2) {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .rank > div > div:nth-child(3) {
@@ -56,11 +43,74 @@
 }
 
 .rank > div > div:nth-child(4) {
-  text-align: right;
-  color: #6b7280;
-  font-size: 0.9rem;
+  text-align: center;
+  color: #059669;
+  font-weight: 600;
 }
 
-.rank p {
-  margin: 0;
+.rank > div > div:nth-child(5) {
+  text-align: center;
+  color: #7c3aed;
+  font-weight: 500;
+}
+
+.rank > div > div:nth-child(6) {
+  text-align: right;
+  color: #6b7280;
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Row styles */
+.rank > div:hover {
+  background: #f8f9fa;
+}
+
+/* Header row - first child */
+.rank > div:first-child {
+  background: #1e293b;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.rank > div:first-child:hover {
+  background: #1e293b;
+}
+
+.rank > div:first-child > div {
+  color: #fff;
+}
+
+/* Gold - 1st place (now 2nd child) */
+.rank > div:nth-child(2) {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+  font-weight: 600;
+}
+
+/* Silver - 2nd place (now 3rd child) */
+.rank > div:nth-child(3) {
+  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+  font-weight: 600;
+}
+
+/* Bronze - 3rd place (now 4th child) */
+.rank > div:nth-child(4) {
+  background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%);
+  font-weight: 600;
+}
+
+@media (width <= 768px) {
+  .rank > div {
+    grid-template-columns: 60px 1fr 70px 60px;
+  }
+
+  .rank > div > div:nth-child(5),
+  .rank > div > div:nth-child(6) {
+    display: none;
+  }
 }
